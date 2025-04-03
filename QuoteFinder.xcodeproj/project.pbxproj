@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F474151F2D9EBA9800510B04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47415192D9EBA9800510B04 /* Preview Assets.xcassets */; };
+		F47415202D9EBA9800510B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F474151B2D9EBA9800510B04 /* Assets.xcassets */; };
+		F47415212D9EBA9800510B04 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474151C2D9EBA9800510B04 /* QuoteView.swift */; };
+		F47415222D9EBA9800510B04 /* QuoteFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474151D2D9EBA9800510B04 /* QuoteFinderApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F47415082D9EBA9000510B04 /* QuoteFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F47415192D9EBA9800510B04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F474151B2D9EBA9800510B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F474151C2D9EBA9800510B04 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		F474151D2D9EBA9800510B04 /* QuoteFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFinderApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		F474150A2D9EBA9000510B04 /* QuoteFinder */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = QuoteFinder;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F47415052D9EBA9000510B04 /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		F47414FF2D9EBA9000510B04 = {
 			isa = PBXGroup;
 			children = (
-				F474150A2D9EBA9000510B04 /* QuoteFinder */,
+				F474151E2D9EBA9800510B04 /* QuoteFinder */,
 				F47415092D9EBA9000510B04 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,49 @@
 				F47415082D9EBA9000510B04 /* QuoteFinder.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F474151A2D9EBA9800510B04 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F47415192D9EBA9800510B04 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F474151E2D9EBA9800510B04 /* QuoteFinder */ = {
+			isa = PBXGroup;
+			children = (
+				F474151D2D9EBA9800510B04 /* QuoteFinderApp.swift */,
+				F47415242D9EBABC00510B04 /* Model */,
+				F47415252D9EBAC500510B04 /* ViewModel */,
+				F47415232D9EBAB200510B04 /* Views */,
+				F474151A2D9EBA9800510B04 /* Preview Content */,
+				F474151B2D9EBA9800510B04 /* Assets.xcassets */,
+			);
+			path = QuoteFinder;
+			sourceTree = "<group>";
+		};
+		F47415232D9EBAB200510B04 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F474151C2D9EBA9800510B04 /* QuoteView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F47415242D9EBABC00510B04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F47415252D9EBAC500510B04 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +105,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				F474150A2D9EBA9000510B04 /* QuoteFinder */,
 			);
 			name = QuoteFinder;
 			packageProductDependencies = (
@@ -109,6 +152,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F474151F2D9EBA9800510B04 /* Preview Assets.xcassets in Resources */,
+				F47415202D9EBA9800510B04 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47415212D9EBA9800510B04 /* QuoteView.swift in Sources */,
+				F47415222D9EBA9800510B04 /* QuoteFinderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
