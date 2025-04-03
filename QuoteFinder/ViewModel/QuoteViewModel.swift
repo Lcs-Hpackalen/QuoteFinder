@@ -25,7 +25,7 @@ class QuoteViewModel {
             await self.fetchQuote()
         }
     }
-    // MARK: Function(s)
+    
     func saveQuote() {
         
         if let currentQuote = self.currentQuote {
@@ -34,6 +34,8 @@ class QuoteViewModel {
         
         print("There are \(favouriteQuotes.count) quotes saved")
     }
+    
+    // MARK: Function(s)
     
     // This loads a new quote from the endpoint
     //
