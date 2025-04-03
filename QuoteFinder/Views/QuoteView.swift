@@ -18,14 +18,15 @@ struct QuoteView: View {
             if let currentQuote = viewModel.currentQuote {
                 
                 Group{
-                    Text(currentQuote.quote)
+                    Text(currentQuote.quoteText ?? "")
                         .padding(.bottom, 100)
                     
-                    Text(currentQuote.author)
-                        .font(.caption)
+                    Text(currentQuote.quoteAuthor ?? "")
+                        .padding(.bottom, 50)
                 }
                 .font(.title)
                 .multilineTextAlignment(.center)
+                
                 Button {
                     Task {
                         await viewModel.fetchQuote()

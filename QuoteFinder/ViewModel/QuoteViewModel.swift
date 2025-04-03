@@ -14,6 +14,8 @@ class QuoteViewModel {
     //The current quote we have retrieved from our endpoint.
     var currentQuote: Quote?
     
+    var favouriteQuotes: [Quote] = []
+    
     //MARK: Initializer(s)
     init(currentQuote: Quote? = nil) {
         
@@ -24,6 +26,14 @@ class QuoteViewModel {
         }
     }
     // MARK: Function(s)
+    func saveQuote() {
+        
+        if let currentQuote = self.currentQuote {
+            favouriteQuotes.insert(currentQuote, at: 0)
+        }
+        
+        print("There are \(favouriteQuotes.count) quotes saved")
+    }
     
     // This loads a new quote from the endpoint
     //
@@ -34,6 +44,7 @@ class QuoteViewModel {
     // this ensures that other parts of our app, such as the user
     // interface, won't "freeze up" while this function does it's job.
     func fetchQuote() async {
+        
         let endpoint = "https://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en"
         guard let url = URL(string: endpoint) else {
             print("Invalid address for JSON endpoint.")

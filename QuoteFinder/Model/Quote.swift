@@ -8,8 +8,7 @@
 import Foundation
 
 struct Quote: Identifiable, Codable {
-    let id: String
-    let quote: String
-    let author: String
+    let id = UUID()
+    let quoteAuthor: String?
+    let quoteText: String?
 }
-
