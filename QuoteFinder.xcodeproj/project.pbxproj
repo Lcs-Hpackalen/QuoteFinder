@@ -11,6 +11,8 @@
 		F47415202D9EBA9800510B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F474151B2D9EBA9800510B04 /* Assets.xcassets */; };
 		F47415212D9EBA9800510B04 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474151C2D9EBA9800510B04 /* QuoteView.swift */; };
 		F47415222D9EBA9800510B04 /* QuoteFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474151D2D9EBA9800510B04 /* QuoteFinderApp.swift */; };
+		F47415272D9EBB2900510B04 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47415262D9EBB2900510B04 /* Quote.swift */; };
+		F47415292D9EBB9200510B04 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47415282D9EBB9200510B04 /* QuoteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		F474151B2D9EBA9800510B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F474151C2D9EBA9800510B04 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		F474151D2D9EBA9800510B04 /* QuoteFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteFinderApp.swift; sourceTree = "<group>"; };
+		F47415262D9EBB2900510B04 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		F47415282D9EBB9200510B04 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		F47415242D9EBABC00510B04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F47415262D9EBB2900510B04 /* Quote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 		F47415252D9EBAC500510B04 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F47415282D9EBB9200510B04 /* QuoteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -165,6 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47415212D9EBA9800510B04 /* QuoteView.swift in Sources */,
+				F47415292D9EBB9200510B04 /* QuoteViewModel.swift in Sources */,
+				F47415272D9EBB2900510B04 /* Quote.swift in Sources */,
 				F47415222D9EBA9800510B04 /* QuoteFinderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
