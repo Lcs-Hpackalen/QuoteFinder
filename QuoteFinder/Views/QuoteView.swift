@@ -22,6 +22,8 @@ struct QuoteView: View {
             Button {
                 Task {
                     await viewModel.fetchQuote()
+                    
+                    quoteHasBeenSaved = false
                 }
             } label: {
                 Text("New Quote")
