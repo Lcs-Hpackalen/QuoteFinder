@@ -11,6 +11,8 @@ struct QuoteView: View {
     //MARK: Stored Properties
     @State var viewModel = QuoteViewModel()
     
+    @State  var quoteHasBeenSaved = false
+    
     //MARK: Computed Properties
     var body: some View {
         VStack {
@@ -26,6 +28,18 @@ struct QuoteView: View {
                 }
                 .font(.title)
                 .multilineTextAlignment(.center)
+                
+                Button {
+                    viewModel.saveQuote()
+                    
+                    quoteHasBeenSaved = true
+                } label: {
+                    Text("Save quote")
+                }
+                .tint(.green)
+                .buttonStyle(.borderedProminent)
+                .padding(.bottom, 20)
+                .disabled(quoteHasBeenSaved)
                 
                 Button {
                     Task {
