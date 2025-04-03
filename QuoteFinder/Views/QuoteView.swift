@@ -16,15 +16,19 @@ struct QuoteView: View {
     //MARK: Computed Properties
     var body: some View {
         VStack {
+            Text("Quotes & Authors")
+                .font(.system(size: 44))
+                .padding(.bottom, 50)
             Button {
                 Task {
                     await viewModel.fetchQuote()
                 }
             } label: {
                 Text("New Quote")
-                    .buttonStyle(.borderedProminent)
-                    .tint(.blue)
             }
+            .buttonStyle(.borderedProminent)
+            .tint(.blue)
+            
             if let currentQuote = viewModel.currentQuote {
                 
                 Group{
