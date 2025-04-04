@@ -31,9 +31,17 @@ struct FavouriteQuotesView: View {
                             Text(currentQuote.quoteAuthor ?? "")
                                 .italic()
                         }
+                        .swipeActions{
+                            Button("Delete", role: .destructive){
+                                withAnimation{
+                                    viewModel.delete(currentQuote)
+                                }
+                            }
+                        }
                         }
                         .listStyle(.plain)
                     }
+                    
                     
                 }
                 .navigationTitle("Favourite Quotes")
