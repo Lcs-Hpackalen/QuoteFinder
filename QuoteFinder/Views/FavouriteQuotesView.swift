@@ -37,6 +37,14 @@ struct FavouriteQuotesView: View {
                                     viewModel.delete(currentQuote)
                                 }
                             }
+                            ShareLink(
+                                "Share",
+                                item: currentQuote.AuthorAndQuote,
+                                preview: SharePreview(
+                            "Share Quote",
+                            image: Image("ShareQuoteImage")
+                                )
+                            )
                         }
                         }
                         .listStyle(.plain)
