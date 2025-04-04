@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct FavouriteQuotesView: View {
+    //MARK: Stored Properties
+    
+    @Environment(QuoteViewModel.self) var viewModel
+    
+    //MARK: Computed Properties
     var body: some View {
         NavigationStack{
             VStack{
-                Text("This will show favourite quotes")
+                if viewModel.favouriteQuotes.isEmpty{
+                    ContentUnavailableView("There are no quotes favourited", image: "heart.slash", description: Text("Try seeing if any quotes hit deep"))
+                    }
+                else {
+                    
+                    Text("There are \(viewModel.favouriteQuotes.count) favourite quotes")
+                }
+                
             }
             .navigationTitle("Favourite Quotes")
         }
@@ -20,4 +32,5 @@ struct FavouriteQuotesView: View {
 
 #Preview {
     FavouriteQuotesView()
+        .environment(QuoteViewModel())
 }

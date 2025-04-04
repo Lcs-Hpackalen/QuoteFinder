@@ -9,7 +9,8 @@ import SwiftUI
 
 struct QuoteView: View {
     //MARK: Stored Properties
-    @State var viewModel = QuoteViewModel()
+    
+    @Environment(QuoteViewModel.self) var viewModel
     
     @State  var quoteHasBeenSaved = false
     
@@ -66,4 +67,5 @@ struct QuoteView: View {
 
 #Preview {
     QuoteView()
+        .environment(QuoteViewModel())
 }
