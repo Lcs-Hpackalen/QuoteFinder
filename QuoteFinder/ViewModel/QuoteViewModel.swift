@@ -24,6 +24,9 @@ class QuoteViewModel {
         Task {
             await self.fetchQuote()
         }
+        
+        loadFavouriteQuotes()
+        
     }
     
     func saveQuote() {
@@ -99,67 +102,69 @@ class QuoteViewModel {
             print(error)
             
         }
-        func loadFavouriteQuotes() {
+        
+        
+    }
+    
+    func loadFavouriteQuotes() {
+        
+        // Get a URL that points to the saved JSON data containing our list of favourite jokes
+        let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
+        
+        print("Filename we are reading persisted jokes from is:")
+        print(filename)
+        
+        // Attempt to load from the JSON in the stored file
+        do {
             
-            // Get a URL that points to the saved JSON data containing our list of favourite jokes
-            let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
+            // Load the raw data
+            let data = try Data(contentsOf: filename)
             
-            print("Filename we are reading persisted jokes from is:")
-            print(filename)
+            print("Got data from file, contents are:")
+            print(String(data: data, encoding: .utf8)!)
             
-            // Attempt to load from the JSON in the stored file
-            do {
-                
-                // Load the raw data
-                let data = try Data(contentsOf: filename)
-                
-                print("Got data from file, contents are:")
-                print(String(data: data, encoding: .utf8)!)
-                
-                // Decode the data into Swift native data structures
-                self.favouriteQuotes = try JSONDecoder().decode([Quote].self, from: data)
-                
-            } catch {
-                
-                print(error)
-                print("Could not load data from file, initializing with empty list.")
-                
-                self.favouriteQuotes = []
-            }
+            // Decode the data into Swift native data structures
+            self.favouriteQuotes = try JSONDecoder().decode([Quote].self, from: data)
             
+        } catch {
+            
+            print(error)
+            print("Could not load data from file, initializing with empty list.")
+            
+            self.favouriteQuotes = []
         }
         
-        // Write favourite jokes to file on device
-        func persistFavouriteQuotes() {
+    }
+    // Write favourite jokes to file on device
+    func persistFavouriteQuotes() {
+        
+        // Get a URL that points to the saved JSON data containing our list of people
+        let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
+        
+        print("Filename we are writing persisted jokes to is is:")
+        print(filename)
+        
+        do {
             
-            // Get a URL that points to the saved JSON data containing our list of people
-            let filename = getDocumentsDirectory().appendingPathComponent(fileLabel)
+            // Create an encoder
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
             
-            print("Filename we are writing persisted jokes to is is:")
-            print(filename)
+            // Encode the list of people we've tracked
+            let data = try encoder.encode(self.favouriteQuotes)
             
-            do {
-                
-                // Create an encoder
-                let encoder = JSONEncoder()
-                encoder.outputFormatting = .prettyPrinted
-                
-                // Encode the list of people we've tracked
-                let data = try encoder.encode(self.favouriteQuotes)
-                
-                // Actually write the JSON file to the documents directory
-                try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
-                
-                print("Wrote data to file, contents are:")
-                print(String(data: data, encoding: .utf8)!)
-                
-                print("Saved data to documents directory successfully.")
-                
-            } catch {
-                
-                print(error)
-                print("Unable to write list of favourite jokes to documents directory.")
-            }
+            // Actually write the JSON file to the documents directory
+            try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+            
+            print("Wrote data to file, contents are:")
+            print(String(data: data, encoding: .utf8)!)
+            
+            print("Saved data to documents directory successfully.")
+            
+        } catch {
+            
+            print(error)
+            print("Unable to write list of favourite jokes to documents directory.")
         }
     }
 }
