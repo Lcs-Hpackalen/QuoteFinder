@@ -45,10 +45,9 @@ struct QuoteView: View {
                     Button {
                         Task{
                             viewModel.saveQuote()
+                            quoteHasBeenSaved = true
                             
                             await viewModel.fetchQuote()
-                            
-                            quoteHasBeenSaved = true
                             quoteHasBeenSaved = false
                         }
                     } label: {
