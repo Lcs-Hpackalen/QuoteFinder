@@ -15,50 +15,51 @@ struct QuoteView: View {
     
     //MARK: Computed Properties
     var body: some View {
-        VStack {
-            Text("Quotes & Authors")
-                .font(.system(size: 44))
-                .padding(.bottom, 50)
-            Button {
-                Task {
-                    await viewModel.fetchQuote()
-                    
-                    quoteHasBeenSaved = false
-                }
-            } label: {
-                Text("New Quote")
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(.blue)
-            
-            if let currentQuote = viewModel.currentQuote {
-                
-                Group{
-                    Text(currentQuote.quoteText ?? "")
-                        .padding(.bottom, 100)
-                    
-                    Text(currentQuote.quoteAuthor ?? "")
-                        .padding(.bottom, 50)
-                }
-                .font(.title)
-                .multilineTextAlignment(.center)
-                
+        NavigationStack{
+            VStack {
                 Button {
-                    viewModel.saveQuote()
-                    
-                    quoteHasBeenSaved = true
+                    Task {
+                        await viewModel.fetchQuote()
+                        
+                        quoteHasBeenSaved = false
+                    }
                 } label: {
-                    Text("Save quote")
+                    Text("New Quote")
                 }
-                .tint(.green)
                 .buttonStyle(.borderedProminent)
-                .padding(.bottom, 20)
-                .disabled(quoteHasBeenSaved)
+                .tint(.blue)
                 
-                
-
+                if let currentQuote = viewModel.currentQuote {
+                    
+                    Group{
+                        Text(currentQuote.quoteText ?? "")
+                            .padding(.bottom, 100)
+                        
+                        Text(currentQuote.quoteAuthor ?? "")
+                            .padding(.bottom, 50)
+                    }
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    
+                    Button {
+                        viewModel.saveQuote()
+                        
+                        quoteHasBeenSaved = true
+                    } label: {
+                        Text("Save quote")
+                    }
+                    .tint(.green)
+                    .buttonStyle(.borderedProminent)
+                    .padding(.bottom, 20)
+                    .disabled(quoteHasBeenSaved)
+                    
+                    
+                    
+                }
             }
+            .navigationTitle("Quotes & Authors")
         }
+       
         .padding()
     }
 }
