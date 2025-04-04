@@ -15,22 +15,31 @@ struct FavouriteQuotesView: View {
     //MARK: Computed Properties
     var body: some View {
         NavigationStack{
-            VStack{
-                if viewModel.favouriteQuotes.isEmpty{
-                    ContentUnavailableView("There are no quotes favourited", image: "heart.slash", description: Text("Try seeing if any quotes hit deep"))
+            
+            ZStack{
+                
+                Color.forFavouriteQuotes
+                    .ignoresSafeArea()
+        
+                VStack{
+                    if viewModel.favouriteQuotes.isEmpty{
+                        ContentUnavailableView("There are no quotes favourited", image: "heart.slash", description: Text("Try seeing if any quotes hit deep"))
                     }
-                else {
-                    List(viewModel.favouriteQuotes) { currentQuote in VStack(alignment: .leading, spacing: 5){
-                        Text(currentQuote.quoteText ?? "")
-                        Text(currentQuote.quoteAuthor ?? "")
-                            .italic()
+                    else {
+                        List(viewModel.favouriteQuotes) { currentQuote in VStack(alignment: .leading, spacing: 5){
+                            Text(currentQuote.quoteText ?? "")
+                            Text(currentQuote.quoteAuthor ?? "")
+                                .italic()
+                        }
+                        }
+                        .listStyle(.plain)
                     }
-                    }
-                    .listStyle(.plain)
+                    
                 }
+                .navigationTitle("Favourite Quotes")
                 
             }
-            .navigationTitle("Favourite Quotes")
+            
         }
     }
 }
