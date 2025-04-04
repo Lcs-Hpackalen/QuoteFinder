@@ -43,9 +43,14 @@ struct QuoteView: View {
                     .multilineTextAlignment(.center)
                     
                     Button {
-                        viewModel.saveQuote()
-                        
-                        quoteHasBeenSaved = true
+                        Task{
+                            viewModel.saveQuote()
+                            
+                            await viewModel.fetchQuote()
+                            
+                            quoteHasBeenSaved = true
+                            quoteHasBeenSaved = false
+                        }
                     } label: {
                         Text("Save quote")
                     }
