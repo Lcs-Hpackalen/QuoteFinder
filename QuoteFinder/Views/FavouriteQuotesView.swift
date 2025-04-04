@@ -20,8 +20,13 @@ struct FavouriteQuotesView: View {
                     ContentUnavailableView("There are no quotes favourited", image: "heart.slash", description: Text("Try seeing if any quotes hit deep"))
                     }
                 else {
-                    
-                    Text("There are \(viewModel.favouriteQuotes.count) favourite quotes")
+                    List(viewModel.favouriteQuotes) { currentQuote in VStack(alignment: .leading, spacing: 5){
+                        Text(currentQuote.quoteText ?? "")
+                        Text(currentQuote.quoteAuthor ?? "")
+                            .italic()
+                    }
+                    }
+                    .listStyle(.plain)
                 }
                 
             }
