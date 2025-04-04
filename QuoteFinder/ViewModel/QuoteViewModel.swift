@@ -35,6 +35,14 @@ class QuoteViewModel {
         print("There are \(favouriteQuotes.count) quotes saved")
     }
     
+    func delete(_ quoteToDelete: Quote){
+        favouriteQuotes.removeAll { currentQuote in
+            currentQuote.id == quoteToDelete.id
+        }
+        
+        print("There are \(favouriteQuotes.count) quotes saved")
+        
+    }
     // MARK: Function(s)
     
     // This loads a new quote from the endpoint
